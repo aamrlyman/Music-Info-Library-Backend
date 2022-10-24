@@ -39,3 +39,26 @@ def song_detail(request, pk):
              song.delete()
              return Response(status = status.HTTP_204_NO_CONTENT)
 
+# @api_view(["PUT"])
+# def like_song(request, pk):
+#     song = get_object_or_404(Music_Library, pk=pk)
+#     if request.method == "PUT":
+#         song.likes += 1
+#         serializer = Music_LibrarySerializer(song, data=request.data);
+#         serializer.is_valid(raise_exception=True)
+#         serializer.save(update_fields=["likes"])
+#         return Response(serializer.data)
+
+@api_view(["PUT"])
+def like_song(request, pk):
+    song = Music_Library.objects.filter(pk=pk).update(likes= 1)
+    request = song
+    return Response(request)
+
+    #     if request.method == "PUT":
+#         song.likes += 1
+#         serializer = Music_LibrarySerializer(song, data=request.data);
+#         serializer.is_valid(raise_exception=True)
+#         serializer.save(update_fields=["likes"])
+#         return Response(serializer.data)
+   

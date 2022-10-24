@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Music_Library
+from .models import Song
 
-admin.site.register(Music_Library)
+admin.site.register(Song)
 # Register your models here.

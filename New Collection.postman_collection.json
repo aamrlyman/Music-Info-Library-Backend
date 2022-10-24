@@ -12,7 +12,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://127.0.0.1:8000/api/music_library/",
+					"raw": "http://127.0.0.1:8000/api/songs/",
 					"protocol": "http",
 					"host": [
 						"127",
@@ -23,7 +23,7 @@
 					"port": "8000",
 					"path": [
 						"api",
-						"music_library",
+						"songs",
 						""
 					]
 				}
@@ -37,7 +37,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "    {\r\n        \"title\": \"So What!\",\r\n        \"artist\": \"Miles Davis\",\r\n        \"album\": \"Kind Of Blue\",\r\n        \"release_date\": \"1959-08-17\",\r\n        \"genre\": \"Jazz\",\r\n        \"likes\": 5\r\n    }",
+					"raw": "   {\r\n        \"title\": \"Here Comes The Sun\",\r\n        \"artist\": \"Beatle\",\r\n        \"album\": \"Abbey Road\",\r\n        \"release_date\": \"1969-09-26\",\r\n        \"genre\": \"Rock\",\r\n        \"likes\": 1\r\n    }",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -45,7 +45,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://127.0.0.1:8000/api/music_library/",
+					"raw": "http://127.0.0.1:8000/api/songs/",
 					"protocol": "http",
 					"host": [
 						"127",
@@ -56,7 +56,7 @@
 					"port": "8000",
 					"path": [
 						"api",
-						"music_library",
+						"songs",
 						""
 					]
 				}
@@ -70,7 +70,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "    {\r\n        \"title\": \"Take the A Train\",\r\n        \"artist\": \"Billy Strayhorn\",\r\n        \"album\": \"Not sure\",\r\n        \"release_date\": \"1941-01-15\",\r\n        \"genre\": \"Jazz\",\r\n        \"likes\": 1\r\n    }",
+					"raw": "    {\r\n\r\n    \"title\": \"Here Comes The Sun\",\r\n    \"artist\": \"Beatle\",\r\n    \"album\": \"Abbey Road\",\r\n    \"release_date\": \"1969-09-26\",\r\n    \"genre\": \"Rock\",\r\n    \"likes\": 2\r\n    }",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -78,7 +78,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://127.0.0.1:8000/api/music_library/8/",
+					"raw": "http://127.0.0.1:8000/api/songs/1/",
 					"protocol": "http",
 					"host": [
 						"127",
@@ -89,8 +89,8 @@
 					"port": "8000",
 					"path": [
 						"api",
-						"music_library",
-						"8",
+						"songs",
+						"1",
 						""
 					]
 				}
@@ -103,7 +103,7 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "http://127.0.0.1:8000/api/music_library/8/",
+					"raw": "http://127.0.0.1:8000/api/songs/8/",
 					"protocol": "http",
 					"host": [
 						"127",
@@ -114,8 +114,34 @@
 					"port": "8000",
 					"path": [
 						"api",
-						"music_library",
+						"songs",
 						"8",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "like_song",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/songs/5/like/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"songs",
+						"5",
+						"like",
 						""
 					]
 				}

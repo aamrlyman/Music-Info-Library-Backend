@@ -3,8 +3,7 @@ from django.shortcuts import get_object_or_404
 from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-
-import music_library 
+from django.db.models import F 
 from .models import Song
 from music_library import serializers
 from .serializers import SongSerializer
@@ -39,27 +38,13 @@ def song_detail(request, pk):
              song.delete()
              return Response(status = status.HTTP_204_NO_CONTENT)
 
-# @api_view(["PUT"])
-# def like_song(request, pk):
-#     song = get_object_or_404(Song, pk=pk)
-#     if request.method == "PUT":
-#         song.likes += 1
-#         serializer = SongSerializer(song, data=request.data);
-#         serializer.is_valid(raise_exception=True)
-#         serializer.save(update_fields=["likes"])
-#         return Response(serializer.data)
 
-# # @api_view(["PUT"])
-# # def like_song(request, pk):
-# #     song = Song.objects.get(id=pk)
-# #     song.update(likes = song.likes + 1)
-# #     request = song
-#     return Response(request)
+@api_view(["PUT"])
+def like_song(request, pk):
+    song = Song.objects.get(id=pk)
+    song.likes = F('likes') + 1
+    song.save()
+    return Response(status = status.HTTP_204_NO_CONTENT)
 
-    #     if request.method == "PUT":
-#         song.likes += 1
-#         serializer = SongSerializer(song, data=request.data);
-#         serializer.is_valid(raise_exception=True)
-#         serializer.save(update_fields=["likes"])
-#         return Response(serializer.data)
-   
+
+    

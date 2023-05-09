@@ -44,7 +44,7 @@ def song_detail(request, pk):
 def like_song(request, pk):
     song = Song.objects.get(pk=pk)
     data = {'likes': song.likes +int(1)}
-    serializer = SongSerializer(song, data= data, partial = True)
+    serializer = SongSerializer(song, data= data, partial = True)  # type: ignore
     serializer.is_valid(raise_exception=True)
     serializer.save()
     return Response(serializer.data, status = status.HTTP_204_NO_CONTENT)
